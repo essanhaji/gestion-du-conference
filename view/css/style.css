@@ -1,0 +1,195 @@
+/*genral*/
+body{
+  background: #f4f4f4;
+}
+
+/*freamwork*/
+.main-color-bg {
+background: #0099ff !important;
+border-color: #0099ff !important;
+color: #fff !important;
+}
+
+/*heaader*/
+.navbar{
+  margin: 0;
+  padding:0;
+}
+.navbar-default {
+  background-color: #3c7fe7;
+  border-color: #3c7fe7;
+}
+.navbar-default .navbar-brand {
+  color: #dfe7e8;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ecdbff;
+}
+.navbar-default .navbar-text {
+  color: #dfe7e8;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #dfe7e8;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ecdbff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ecdbff;
+  background-color: #52a6de;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ecdbff;
+  background-color: #1272f0;
+}
+
+
+
+/* header Admin*/
+#header{
+  background: #333333;
+  color:#fff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+#header .create{
+  padding-top:20px;
+}
+.main-color-bg {
+  background: #3c7fe7 !important;
+  border-color: #3c7fe7 !important;
+  color: #fff !important;
+}
+
+.center-box{
+  text-align:center;
+}
+
+
+/* Footer Admin */
+#footer{
+  background: #333333;
+  color:#fff;
+  padding: 10px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.ds-btn {margin:0 15px 15px 15px }
+/*.ds-btn:nth-child(2) {float:right;} */
+.ds-btn  a span{
+  padding-left:15px;
+  padding-right:5px;
+  width:100%;
+  display:inline-block; 
+  text-align:left;
+  font-size: 17px
+}
+#last_btns .ds-btn {float:left;margin-left:30px;margin-right: 25px }
+
+/******************  ADD NEW ONE **************/
+.add input{
+  display: block;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 35px;
+  width:40%;
+  line-height: 45px;  
+  margin-bottom: 20px;
+  margin-left: 7%;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.8);
+  float: left;
+}
+.add textarea{
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 100px;
+  width:40%;
+  line-height: 45px;  
+  margin-bottom: 20px;
+  margin-left: 7%;
+  font-size: 1em;
+  color: rgba(0,0,0,.8);
+}
+.add input:focus,.add textarea:focus,.add2 input:focus,.add2 textarea:focus{
+  outline: none;
+  border-color: rgb(19, 103, 214);
+}
+
+
+.add2  input{
+  display: block;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 35px;
+  width:85%;
+  line-height: 45px;  
+  margin-bottom: 20px;
+  margin-left: 7%;
+  font-size: 1em;
+  color: rgba(0,0,0,.8);
+}
+.add2 textarea{
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  height: 100px;
+  width:85%;
+  line-height: 45px;  
+  margin-bottom: 20px;
+  margin-left: 7%;
+  font-size: 1em;
+  color: rgba(0,0,0,.8);
+}
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+
+
+/****************** CONFERENCE **************/
+.conference {
+  width:75%;
+  display: inline-block
+}
+.conference .inputs{
+  width:48.5%;
+  margin-bottom: 20px;
+  float: left;
+
+}
+.conference .inputs:first-child{
+  width: 100%;
+}
+.conference .inputs:nth-child(4){
+  float: none;
+  overflow: hidden;
+  width: 100%
+}
+.conference button{
+  margin-top: 20px;
+  display: block;
+  clear: both;
+}

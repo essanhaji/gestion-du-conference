@@ -1,0 +1,5 @@
+CREATE TABLE `pfe`.`Speaker` ( `id` INT(100) NOT NULL AUTO_INCREMENT ,
+ `name` VARCHAR(50) NOT NULL , `lastname` VARCHAR(50) NOT NULL , 
+`email` VARCHAR(50) NOT NULL , `description` TEXT NOT NULL ,
+ `phone_number` VARCHAR(50) NOT NULL , `picture` VARCHAR(100) NOT NULL ,
+ PRIMARY KEY (`id`), UNIQUE `email` (`email`)) ENGINE = InnoDB;

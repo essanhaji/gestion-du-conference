@@ -1,0 +1,267 @@
+<?php
+
+    require_once '../model/Admin.php';  
+    include 'session_test_admin.php';
+?>
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/jBox.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+    	.cursor_link{
+		  cursor: pointer;
+		}
+    </style>
+    
+ <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <link rel="stylesheet" href="css/style.css"/>
+ -->
+    <title>Admin System</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">ESTE CONFERENCE</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li><a href="V_Dashboard.php">Dashboard</a></li>
+                    <li  class="active"><a onclick="update_file_badge();" class="cursor_link"> Files</a></li>
+                    <li><a onclick="update_participant_badge();" class="cursor_link"> Participants</a></li>
+                    <li><a href="V_Team.php"> Team</a></li>
+                    <li><a href="V_Speaker.php"> Speakers</a></li>
+                    <li><a href="V_Admins.php"> Admins</a></li>
+                    <li><a href="V_Conference.php"> Conference</a></li>
+                    <li><a href="V_Sponsor.php"> Sponsors</a></li>
+                  </ul>
+                  <div class="navbar-right" style="color:white;margin-top:15px;">
+            			<span style="margin-right:20px">Welcome, <?php $admin_info=$_SESSION['Admin']; 
+              		    echo $admin_info->name.' '.$admin_info->lastname;  ?></span>
+                </div>
+                </div>
+        </nav>
+
+<header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1><span class="ion-android-person-add" aria-hidden="true"></span> Files <small> Files Management
+</small></h1>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown create">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="ion-gear-b" aria-hidden="true"></span> My Account
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="V_EditAccount.php"><span style="color:#262627 " class="ion-ios-gear-outline" aria-hidden="true"> </span> Edit Account</a></li>
+                                <li><a href="_Logout.php"><span style="color:#262627 " class="ion-log-out" aria-hidden="true"> </span> Logout</a></li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb" style="padding:0;margin:0;">
+                <li class="active">Dashboard / Participants</li>
+            </ol>
+        </div>
+    </section>
+
+    <div id="main1"></div>
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <a href="V_Dashboard.php" class="list-group-item"><span class="ion-home" aria-hidden="true"></span> Dashboard</a>
+                        <a onclick="update_file_badge();"  class="list-group-item active main-color-bg cursor_link"><i class="ion-document-text"></i></span> Files<span class="badge"><?= Admin::newFile1() /*number of new files*/?></span></a>
+                        <a onclick="update_participant_badge();" class="list-group-item cursor_link"><span class="ion-android-contacts participant_link" aria-hidden="true"></span> Participants</span><span class="badge"><?= Admin::newPart1()?></span></a>
+                        <a href="V_Team.php" class="list-group-item"><span class="ion-person-stalker" aria-hidden="true"></span> Team Members</span></a>
+                        <a href="V_Speaker.php" class="list-group-item"><span class="ion-speakerphone" aria-hidden="true"></span> Speakers</span></a>
+                        <a href="V_Admins.php" class="list-group-item "><span class="ion-android-person-add" aria-hidden="true"></span> Admins</a>
+                        <a href="V_Conference.php" class="list-group-item"><span class="ion-android-create" aria-hidden="true"></span> Conference</span></a>
+                        <a href="V_Sponsor.php" class="list-group-item"><span class="ion-android-star" aria-hidden="true"></span> Sponsors</span></a>
+                        </div>
+                </div>
+
+
+
+
+
+
+                     <!--    PANEL  -->
+                     <div class="col-md-9">
+    
+                        <!-- BUTTONS-->
+                        <div class="row">
+                                    <div class="ds-btn">
+                                            <button type="button" class="btn btn-danger btn-block" onclick="delete_All_file()">
+                                                <i class="ion-android-delete"></i>
+                                                <span> Delete All<br></span>
+                                            </button>
+                                    </div>
+                        </div>
+                        <a href="../model/TCPDF-master/index.php">
+                                    <div class="ds-btn">
+                                        <button  class="btn btn-primary btn-block" >
+                                            <i class=""></i>
+                                            <span> Generate a PDF<br></span>
+                                        </button>
+                                    </div>
+                        </a>    
+
+
+                <!--LIST OF speakers-->
+                <div class="panel panel-default ">
+                    <div class="panel-heading main-color-bg">
+                        </span><h3 class="panel-title"><span class="ion-android-arrow-dropdown" aria-hidden="true"></span> List Of speakers</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--input for searching-->
+                                <input class="form-control" id="myInput" onkeyup="myFunction()" type="text" placeholder="Filter By Names"/>
+                            </div>
+                        </div>
+                        <br>
+                        <table id="myTable" class="table table-striped table-hover">
+                            
+                                <tr class="header">
+                                    <th>Id</th>
+                                    <th>File Title</th>
+                                    <th>author</th>
+                                    <th></th>
+                                </tr>
+                                
+                                    <?php  /****** Start : Of List speakers ******/
+                                    $tab = array();
+                                    $tab = Admin::showFilePart();
+                                    //print_r($tab);
+                                    for($j=0; $j<count($tab); $j++)
+                                    {
+
+                                        ?>
+                                        <td><?= $tab[$j][0] ?></td>
+                                        <td><?= $tab[$j][2] ?></td>
+                                        <td><?= $tab[$j][4].' '.$tab[$j][5] ?></td>
+                                        <td>
+                                        	<form method="POST" style="float: left;margin-right:5px">
+                                            <!-- button: more -->
+                                            <a  href="ShowFile.php?id=<?= $tab[$j][0] ?>" class="btn btn-default show_admin">More</a>
+                                        	</form>
+                                        	<!-- button: DELETE -->
+                                            <button  onclick="delete_file(<?= $tab[$j][0] ?>)"  type="submit" name="delete_admin_btn" class="btn btn-danger" >Delete</button>
+                                        </td>
+                                    </tr>
+                                  
+                                    
+                                     <?php
+                                    /** End Of List Admins */
+                                    }
+                                    ?>
+                                 
+
+                            </table>
+                    </div>
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer id="footer">
+        <p>Copyright ESTE-Conference, &copy; 2018</p>
+    </footer>
+    <!-- Optional JavaScript -->
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jBox.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/ajaxForm.js" ></script>
+    <script type="text/javascript">
+  
+    // searhing
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+
+    function update_file_badge(){
+        document.location.href="update_file_badge.php";
+    } 
+    function update_participant_badge(){
+        document.location.href="update_participant_badge.php";
+    }
+
+    //Delete an admin
+        function delete_file(data) {
+            var conf = confirm("Are you sure that you want to do this operation ?!");
+            if (conf == true) {
+                var id=data;
+                    $.ajax({
+                        type:"POST", 
+                        url:"../controler/F_delete_file.php",
+                        data:{id:+id},
+                        success: function(data)
+                        {
+                            $("#main1").html(data);
+                        }
+                    })   
+                } 
+        }
+        
+        function delete_All_file() {
+            var conf = confirm("Are you sure that you want to do this operation ?!");
+            if (conf == true) {
+                $.ajax({
+                    type:"POST", 
+                    url:"../controler/F_deleteALL_file.php",
+                
+                 }); 
+                } 
+            
+        }
+
+
+
+    </script>
+
+</body>
+</html>

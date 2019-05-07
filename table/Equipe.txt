@@ -1,0 +1,6 @@
+
+CREATE TABLE `pfe`.`Equipe` ( `id` INT(100) NOT NULL AUTO_INCREMENT ,
+ `name` VARCHAR(50) NOT NULL , `lastname` VARCHAR(50) NOT NULL , 
+`email` VARCHAR(50) NOT NULL , `function` VARCHAR(50) NOT NULL , 
+`description` TEXT NOT NULL , PRIMARY KEY (`id`), 
+UNIQUE (`email`)) ENGINE = InnoDB;

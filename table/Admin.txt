@@ -1,0 +1,10 @@
+CREATE TABLE `pfe`.`Admin` ( `id` INT(100) NOT NULL AUTO_INCREMENT , 
+`name` INT(50) NOT NULL , `lastname` INT(50) NOT NULL ,
+ `email` INT(50) NOT NULL , `username` INT(50) NOT NULL ,
+ `password` INT(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `Admin` ADD UNIQUE(`username`);
+
+
+ALTER TABLE `Admin` ADD UNIQUE(`email`);

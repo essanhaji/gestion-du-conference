@@ -1,0 +1,4 @@
+CREATE TABLE `pfe`.`Conference` ( `title` VARCHAR(50) NOT NULL ,
+ `start_date` DATE NOT NULL , `end_date` DATE NOT NULL ,
+ `location` TEXT NOT NULL , `description` TEXT NOT NULL ,
+ `logo` VARCHAR(50) NOT NULL ) ENGINE = InnoDB;
