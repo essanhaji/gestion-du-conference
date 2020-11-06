@@ -31,6 +31,8 @@ The project is a website for our school that use to manage the conference that m
 
 - For more information about tools, architecture and conception check the ``document/rapport_de_PFE.pdf`` file. Note that the report write in french for academic reason. 
 
+- If you have any issues feel free to ask us.
+
 <hr>
 
 ## Authors
@@ -38,7 +40,5 @@ The project is a website for our school that use to manage the conference that m
 * [El Houcine ES SANHAJI](https://github.com/essanhaji)
 
 <br>
-
-If you have any issues feel free to ask us.
 
 ## Thank you.
