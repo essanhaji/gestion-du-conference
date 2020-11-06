@@ -37,7 +37,7 @@ The project is a website for our school that use to manage the conference that m
 
 ### Demo
 
-[Home](demo.JPG)
+[![Home](demo.JPG)]
 
 <hr>
 
