@@ -29,6 +29,7 @@ The project is a website for our school that use to manage the conference that m
 
 - Go to the browser and tape ``localhost:/gestion-du-conference/view/_index.php``.
 
+- For more information about tools, architecture and conception check the ``document/rapport_de_PFE.pdf`` file. Note that the report write in french for academic reason. 
 
 <hr>
 
@@ -37,5 +38,7 @@ The project is a website for our school that use to manage the conference that m
 * [El Houcine ES SANHAJI](https://github.com/essanhaji)
 
 <br>
+
+If you have any issues feel free to ask us.
 
 ## Thank you.
