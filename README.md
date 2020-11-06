@@ -1,8 +1,8 @@
-# Conference Management
+# Conference Management Website
+
 
 The project is a website for our school that use to manage the conference that my school organize, the project is inspired by [easychair](https://easychair.org/) platform. The project developed using PHP MVC architecture.
 
-<br>
 
 ### Project structure
 
@@ -18,7 +18,6 @@ The project is a website for our school that use to manage the conference that m
 
 *  The ``document`` folder contains the documents related to the project such as presentation and report writing in the French language.
 
-<br>
 
 ### Running the project
 
@@ -31,7 +30,6 @@ The project is a website for our school that use to manage the conference that m
 - Go to the browser and tape ``localhost:/gestion-du-conference/view/_index.php``.
 
 
-<br>
 <hr>
 
 ## Authors
