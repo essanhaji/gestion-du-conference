@@ -35,6 +35,12 @@ The project is a website for our school that use to manage the conference that m
 
 <hr>
 
+### Demo
+
+[Home](demo.JPG)
+
+<hr>
+
 ## Authors
 * [Abdelkarim ESSOUBAKI](https://www.linkedin.com/in/essoubaki-abdelkarim-299310142/)
 * [El Houcine ES SANHAJI](https://github.com/essanhaji)
